@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Small Keyboard</title>
+
+<style>
+body {
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Wrapper */
+.keyboard-wrapper {
+    display: flex;
+    gap: 10px;
+    transform: scale(0.75); /* 🔥 головне зменшення */
+}
+
+/* Keyboard */
+.keyboard, .numpad {
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* Rows */
+.row {
+    display: flex;
+    margin-bottom: 3px;
+}
+
+/* Keys */
+.key {
+    background: #0f172a;
+    color: white;
+    padding: 8px;
+    margin: 2px;
+    border-radius: 6px;
+    min-width: 28px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10px;
+    transition: 0.1s;
+}
+
+.key:hover {
+    background: #334155;
+}
+
+.active {
+    background: #22c55e !important;
+}
+
+/* Sizes */
+.wide { min-width: 55px; }
+.extra-wide { min-width: 140px; }
+.big { min-width: 70px; }
+.tall { height: 60px; display: flex; align-items: center; justify-content: center; }
+
+/* Fn */
+.fn {
+    border: 2px solid red;
+}
+</style>
+
+</head>
+<body>
+
+<div class="keyboard-wrapper">
+
+<!-- MAIN -->
+<div class="keyboard">
+
+<div class="row">
+<div class="key">Esc</div>
+<div class="key">F1</div><div class="key">F2</div><div class="key">F3</div>
+<div class="key">F4</div><div class="key">F5</div><div class="key">F6</div>
+<div class="key">F7</div><div class="key">F8</div><div class="key">F9</div>
+<div class="key">F10</div><div class="key">F11</div><div class="key">F12</div>
+</div>
+
+<div class="row">
+<div class="key">1</div><div class="key">2</div><div class="key">3</div>
+<div class="key">4</div><div class="key">5</div><div class="key">6</div>
+<div class="key">7</div><div class="key">8</div><div class="key">9</div>
+<div class="key">0</div>
+<div class="key wide">Back</div>
+</div>
+
+<div class="row">
+<div class="key wide">Tab</div>
+<div class="key">Q</div><div class="key">W</div><div class="key">E</div>
+<div class="key">R</div><div class="key">T</div><div class="key">Y</div>
+<div class="key">U</div><div class="key">I</div><div class="key">O</div>
+<div class="key">P</div>
+</div>
+
+<div class="row">
+<div class="key wide">Caps</div>
+<div class="key">A</div><div class="key">S</div><div class="key">D</div>
+<div class="key">F</div><div class="key">G</div><div class="key">H</div>
+<div class="key">J</div><div class="key">K</div><div class="key">L</div>
+<div class="key wide">Enter</div>
+</div>
+
+<div class="row">
+<div class="key big">Shift</div>
+<div class="key">Z</div><div class="key">X</div><div class="key">C</div>
+<div class="key">V</div><div class="key">B</div><div class="key">N</div>
+<div class="key">M</div>
+<div class="key big">Shift</div>
+</div>
+
+<div class="row">
+<div class="key">Ctrl</div>
+<div class="key fn">Fn</div>
+<div class="key">Win</div>
+<div class="key">Alt</div>
+<div class="key extra-wide">Space</div>
+<div class="key">Alt</div>
+<div class="key">Ctrl</div>
+</div>
+
+</div>
+
+<!-- NUMPAD -->
+<div class="numpad">
+
+<div class="row">
+<div class="key">7</div>
+<div class="key">8</div>
+<div class="key">9</div>
+</div>
+
+<div class="row">
+<div class="key">4</div>
+<div class="key">5</div>
+<div class="key">6</div>
+</div>
+
+<div class="row">
+<div class="key">1</div>
+<div class="key">2</div>
+<div class="key">3</div>
+</div>
+
+<div class="row">
+<div class="key wide">0</div>
+<div class="key">.</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+document.addEventListener("keydown", function(e) {
+    document.querySelectorAll(".key").forEach(k => {
+        if (k.textContent.toLowerCase() === e.key.toLowerCase()) {
+            k.classList.add("active");
+        }
+    });
+});
+
+document.addEventListener("keyup", function() {
+    document.querySelectorAll(".key").forEach(k => {
+        k.classList.remove("active");
+    });
+});
+</script>
+
+</body>
+</html>
